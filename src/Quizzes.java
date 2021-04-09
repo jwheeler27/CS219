@@ -5,27 +5,28 @@ public class Quizzes {
     public static void main(String[] args)
     {
 
-        //int[] x = new int[3];
-        //System.out.println("x[0] is " + x[0]);
+        int[][] x = new int[4][3];
+        for (int row = 0; row < x.length; row++)
+            for (int col = 0; col < x[0].length; col++)
+                if (row < col)
+                    x[row][col] = 10;
+                else if (row == col)
+                    x[row][col] = 5;
+                else
+                    x[row][col] = 20;
 
 
+            for (int[] row : x)
 
-       // int[] y = new int[]{7,2,3,5};
-        //test(y);
+                // converting each row as string
+                // and then printing in a separate line
+                System.out.println(Arrays.toString(row));
 
-        double[] z = new double[]{3,7,-2,9};
-        test(z);
-
-        int[] arr1 = new int[]{1,3,5};
-        int[] arr2 = new int[]{2,8};
-        int[] arr3;
-
-        arr3 = append(arr1,arr2);
-        System.out.print("Last question: " + arr3.length);
-        System.out.print("Last question: " + Arrays.toString(arr3));
+            System.out.println(x.length);
 
     }
-/*
+
+    /*
     public static void test(int[] nums)
     {
         for (int i=1; i<nums.length; i++)

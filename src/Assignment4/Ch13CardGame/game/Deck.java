@@ -1,5 +1,7 @@
 /**
- * Deck.java (partial, 2 ADD CODE)
+ * Deck.java (complete)
+ * Jonathan Wheeler
+ *
  * Implements a deck of 52 cards and provides methods
  * to work with cards such as deal a card and shuffle
  * the whole deck
@@ -36,6 +38,7 @@ public class Deck extends GroupOfCards
     {
       addCard(new Card(2 + i%13, i/13));
     }
+
   }
 
   //*******************************************
@@ -47,31 +50,28 @@ public class Deck extends GroupOfCards
    * @return  the card removed
    */
   public Card dealCard() {
-  // ADD CODE #1: remove return null line
-    return null; // fake return
+
+    int cardsLeft = getCurrentSize();
+    Card dealt = removeCard(cardsLeft-1);
+
+    return dealt;
   }
 
   /**
    * Shuffle all cards currently in a deck
    */
   public void shuffle() {
-    // ADD CODE #2
-
-    /*
-    The approach described in Exercise #8 of Ch13:
-
+    //Remove a random card from the deck then put it back on top of the deck
+    //Do that 52 times
     for (int unshuffled = getCurrentSize()-1;
              unshuffled >= 0;
              unshuffled--)
     {
-      // 1. pick a random card
+      int randomCard = ThreadLocalRandom.current().nextInt(0, getCurrentSize());
+      Card removed = removeCard(randomCard);
+      addCard(removed);
+     }
 
-      // 2. remove that random card
-
-      // 3. add that card back to high end of the deck
-
-    }
-    */
 
   } // end shuffle
 

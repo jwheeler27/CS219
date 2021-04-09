@@ -1,5 +1,7 @@
 /**
- * GroupOfCards.java (partial, 2 ADD CODE)
+ * GroupOfCards.java (complete)
+ * Jonathan Wheeler
+ *
  * Implements a group of cards and provides methods
  * to add a card and remove a card
  * Project: Ch13 Card Game
@@ -48,7 +50,8 @@ public class GroupOfCards
    * @param card
    */
   public void addCard(Card card) {
-    // ADD CODE #1
+
+    cards.add(card);
   }
 
   //*******************************************
@@ -59,8 +62,11 @@ public class GroupOfCards
    * @return  the card object just removed.
    */
   public Card removeCard(int index) {
-    // ADD CODE #2: remove return null line and add code
-    return null; // fake return
+
+    Card removed = cards.get(index);
+    cards.remove(index);
+
+    return removed; // fake return
   }
 
 } // end class GroupOfCards

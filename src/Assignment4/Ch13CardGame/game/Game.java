@@ -1,5 +1,7 @@
 /**
- * Game.java (partial, 1 ADD)
+ * Game.java (complete)
+ * Jonathan Wheeler
+ *
  * Implements a card game involving one deck of cards and
  * 2 players. Provides methods to play a card game
  * Project: Ch13 Card Game
@@ -46,28 +48,40 @@ public class Game
     int score2 = 0;  // score of player 2
 
     // ADD CODE
-    /*
+
     while (player1.getCurrentSize()>0 && player2.getCurrentSize()>0)
     {
-      // 2.1 player 1 plays a card, display the card
+      //Get a card from the top of each players hand
+      Card p1 = player1.playACard();
+      Card p2 = player2.playACard();
 
-      // 2.2 player 2 plays a card, display the card
+      //Check to see which card is bigger and score accordingly
+      int result = p1.compareTo(p2);
+      if(result> 0)
+      {
+        score1++;
+      }
+      else
+      {
+        score2++;
+      }
 
-      // 2.3 decide who scores and update scores
-
-      // 2.4 print result of this round: print two cards played and current scores
-
+      System.out.print("Player 1: ");
+      p1.display();
+      System.out.print(" vs. Player 2: ");
+      p2.display();
+      System.out.println(" -> scores: " + score1 + " vs. " + score2);
     }
-    */
+
 
     // 3. result of the game
     String resultStr = "";
     if (score1 == score2)
-      resultStr = "Tie";
+      resultStr = "\nTie";
     else if (score1 < score2)
-      resultStr = "Player2 won";
+      resultStr = "\nPlayer2 won";
     else // 1 > 2
-      resultStr = "Player1 won";
+      resultStr = "\nPlayer1 won";
     System.out.println(resultStr);
   } // end PlayAGame
 } // end class Game

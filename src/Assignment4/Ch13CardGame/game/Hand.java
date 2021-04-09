@@ -1,5 +1,7 @@
 /**
- * Hand.java (partial, 1 ADD, 1 optional ADD)
+ * Hand.java (complete)
+ * Jonathan Wheeler
+ *
  * Implements a hand of cards and provides methods
  * to work with cards such as play a card and sort
  * all cards currently in hand
@@ -25,11 +27,12 @@ public class Hand extends GroupOfCards
    * @return the card being played
    */
   public Card playACard() {
-    // ADD CODE #1: remove return null line and add code
-    // 1. decide which card to move: pick a random card
-    // 2. remove and return that card
 
-    return null; // fake return
+    int randomCard = ThreadLocalRandom.current().nextInt(0, getCurrentSize());
+    Card toPlay = removeCard(randomCard);
+
+
+    return toPlay;
   }
 
   /**
