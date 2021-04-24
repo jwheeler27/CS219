@@ -63,10 +63,7 @@ public class GroupOfCards
    */
   public Card removeCard(int index) {
 
-    Card removed = cards.get(index);
-    cards.remove(index);
-
-    return removed; // fake return
+    return cards.remove(index);
   }
 
 } // end class GroupOfCards
