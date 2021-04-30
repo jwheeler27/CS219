@@ -14,9 +14,11 @@ package Assignment7;
 import javax.swing.*; // GUI components JXXX
 
 import java.awt.*; // layout managers; Color, Font
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
+
 public class MailingListView extends JFrame
 {
   // GUI part
@@ -29,7 +31,7 @@ public class MailingListView extends JFrame
 
   public MailingListView()
   {
-    setTitle("Welcome to Fantastic Group");
+    setTitle("Welcome to Wheeler Group 6");
     setLocationRelativeTo(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     createContents();
@@ -75,25 +77,27 @@ public class MailingListView extends JFrame
   public String getEmail()
   {
     // ADD #1: retrieve the content of emailField
-    return "fake"; // replace this fake return
+    return emailField.getText();
   }
 
   public void setEmail(String email)
   {
     // ADD #2: set the content of emailField
+    emailField.setText(email);
 
   }
 
   public void setResult(String result)
   {
     // ADD #3: set the result label
-
+    resultLabel.setText(result);
   }
 
   // open a popup that contains the error msg passed
   void displayErrorMessage(String errorMessage)
   {
     // ADD #4
+    JOptionPane.showMessageDialog(null, errorMessage);
   }
 
   // If the addButton is clicked execute an event handling method in
@@ -101,6 +105,7 @@ public class MailingListView extends JFrame
   void addAddListener(ActionListener listenForAddButton)
   {
     // ADD #5
+
   }
 
   // If the removeButton is clicked execute an event handling method in

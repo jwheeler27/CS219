@@ -40,7 +40,7 @@ public class MailingListModel
     emailList = new ArrayList<String>();
     statusMsg = "no actions";
     hadError = false; // no errors
-    fileName = "data/emails.txt";
+    fileName = "src/Assignment7/data/emails.txt";
 
     loadFromFile(); // load data
   }
