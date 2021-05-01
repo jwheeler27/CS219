@@ -1,6 +1,7 @@
 /*
- * MailingListController.java (incomplete. ADD 1~2)
+ * MailingListController.java (complete. ADD 1~2)
  * CS219
+ * Jonathan Wheeler
  *
  * Controller class for MVC MailingList GUI program.
  *
@@ -14,8 +15,6 @@
  */
 package Assignment7;
 
-
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -28,6 +27,7 @@ public class MailingListController
   private MailingListView theView;
   private MailingListModel theModel;
 
+
   public MailingListController(MailingListView theView, MailingListModel theModel)
   {
     this.theView = theView;
@@ -35,14 +35,11 @@ public class MailingListController
 
     // register listeners
     this.theView.addWindowListener(new MailingListWindowAdapter());
-    //this.theView.addAddListener(new MailingListAddListener());
-    //this.theView.addRemoveListener(new MailingListRemoveListener());
+    this.theView.addAddListener(new MailingListAddListener());
+    this.theView.addRemoveListener(new MailingListRemoveListener());
   }
 
-
-  // ADD #1. listener class for ActionEvent of add button of view class
-
-  // algorithm
+  // Add button listener
   /*
           call View method to retrieve user input
           call Model method to add email
@@ -53,11 +50,20 @@ public class MailingListController
           end if
 
   */
+  class MailingListAddListener implements ActionListener {
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
-  // ADD #2. listener class for ActionEvent of remove button of view class
+      if (theModel.addEmail(theView.getEmail())) {
+        theView.setResult(theModel.getStatusMsg());
+      } else {
+        theView.displayErrorMessage(theModel.getStatusMsg());
+      }
 
-  // algorithm
+    }
+  }
+  //remove button listener
   /*
           call View method to retrieve user input
           call Model method to remove email
@@ -68,8 +74,19 @@ public class MailingListController
           end if
 
   */
+  class MailingListRemoveListener implements ActionListener {
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
+      if (theModel.removeEmail(theView.getEmail())) {
+        theView.setResult(theModel.getStatusMsg());
+      } else {
+        theView.displayErrorMessage(theModel.getStatusMsg());
+      }
+
+    }
+  }
 
   // Handle window closing event.
   // WindowAdapter is an abstract class which implements WindowListener interface

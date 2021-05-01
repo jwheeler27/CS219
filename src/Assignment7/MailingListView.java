@@ -1,6 +1,7 @@
 /*
- * MailingListView.java (incomplete. ADD 1~6)
+ * MailingListView.java (complete. ADD 1~6)
  * CS219
+ * Jonathan Wheeler
  *
  * View class for MVC MailingList GUI program.
  *
@@ -74,29 +75,29 @@ public class MailingListView extends JFrame
   } // end createContens
 
   // getxxx/setxxx
+  //return whatever is typed into the textfield (emailField)
   public String getEmail()
   {
-    // ADD #1: retrieve the content of emailField
     return emailField.getText();
   }
 
+  // set the text in the textfield (emailField)
   public void setEmail(String email)
   {
-    // ADD #2: set the content of emailField
-    emailField.setText(email);
+       emailField.setText(email);
 
   }
 
+
+  //set the text of the result label
   public void setResult(String result)
   {
-    // ADD #3: set the result label
     resultLabel.setText(result);
   }
 
   // open a popup that contains the error msg passed
   void displayErrorMessage(String errorMessage)
   {
-    // ADD #4
     JOptionPane.showMessageDialog(null, errorMessage);
   }
 
@@ -104,15 +105,16 @@ public class MailingListView extends JFrame
   // the controller named actionPerformed
   void addAddListener(ActionListener listenForAddButton)
   {
-    // ADD #5
 
+    addButton.addActionListener(listenForAddButton);
   }
 
   // If the removeButton is clicked execute an event handling method in
   // the controller named actionPerformed
   void addRemoveListener(ActionListener listenForRemoveButton)
   {
-    // ADD #6
+
+    removeButton.addActionListener(listenForRemoveButton);
   }
 
 } // end class MailingListView
