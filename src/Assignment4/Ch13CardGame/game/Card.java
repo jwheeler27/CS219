@@ -90,11 +90,12 @@ public class Card
   public boolean equals(Object anotherObj) {
     if (this == anotherObj)
       return true;
-
+/*
     if (anotherObj instanceof Card) {
       Card tmp = (Card) anotherObj;
       return num == tmp.num && suit == tmp.suit;
     }
+    */
     return false;
   }
 } // end class Card
